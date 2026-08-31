@@ -14,6 +14,35 @@ This plugin is currently developed and tested with the non-RGB **Logitech Litra 
 
 RGB-specific features can be added once the project has access to an RGB model and can test its capabilities and behavior on real hardware.
 
+## Workflow
+
+### 1. Connect the lights
+
+- **USB:** connect a Litra Beam directly; the plugin detects it automatically.
+- **Bluetooth:** hold the light's Bluetooth button for approximately three seconds, then pair it in Omarchy Bluetooth settings. While the panel or app is open, the plugin reconnects paired lights at the interval configured in Settings.
+
+### 2. Control lights independently or together
+
+The Lights tab lists every connected light with its transport, brightness, effective lumen output, and color temperature. Select a light to control its power, brightness, and temperature independently. With multiple lights connected, enable **Sync lights** to copy the first powered-on light's state to the group and apply subsequent changes to every light.
+
+![Lights tab showing two connected Litra Beam lights](docs/screenshots/lights.png)
+
+Brightness respects each light's reported power limit. In synchronized mode, the lowest effective maximum among the connected lights becomes the group limit.
+
+### 3. Automate lights from camera activity
+
+In the Camera tab, select the camera that should drive automation and enable **Turn lights automatically when camera is being used**. The plugin turns all connected lights on while that camera is active and turns them off when it is no longer in use. It recognizes both the built-in preview and camera use by external V4L2 or PipeWire applications.
+
+![Camera automation tab with the live preview blurred for privacy](docs/screenshots/camera.png)
+
+The camera content in this documentation screenshot is intentionally blurred for privacy.
+
+### 4. Tune discovery and recover Bluetooth devices
+
+The Settings tab controls how often the open panel checks paired Bluetooth lights. It also provides separate connection guidance for USB and Bluetooth devices. If a paired Bluetooth light remains listed but will not connect, remove it from Omarchy Bluetooth settings and pair it again.
+
+![Settings tab with discovery and connection guidance](docs/screenshots/settings.png)
+
 ## Install
 
 ```bash
@@ -23,9 +52,7 @@ omarchy plugin enable io.github.tbogard.litra-lights right
 ~/.config/omarchy/plugins/io.github.tbogard.litra-lights/scripts/install-app.sh
 ```
 
-USB lights are detected automatically after they are connected. For Bluetooth, hold the light's Bluetooth button for approximately three seconds and pair it in Omarchy Bluetooth settings.
-
-While the panel or app is open, it continuously checks for paired Bluetooth Litra devices and asks BlueZ to connect any that are not already connected. Newly connected lights appear without closing or reopening the UI; discovery stops when the UI closes. When synchronization is enabled, a newly connected light copies power, brightness, and temperature from the first powered-on established light in the UI list. The default retry interval is 500 ms and can be changed from the Settings tab.
+After installation, follow the workflow above to connect the lights and configure camera automation.
 
 ## Validate
 

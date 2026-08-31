@@ -23,13 +23,21 @@ RGB-specific features can be added once the project has access to an RGB model a
 
 ### 2. Control lights independently or together
 
-The Lights tab lists every connected light with its transport, brightness, effective lumen output, and color temperature. Select a light to control its power, brightness, and temperature independently. With multiple lights connected, enable **Sync lights** to copy the first powered-on light's state to the group and apply subsequent changes to every light.
+The Lights tab lists every connected light with a transport icon, device identifier, effective lumen output, brightness, and color temperature. USB and Bluetooth lights can be used together.
 
-![Lights tab showing two connected Litra Beam lights](docs/screenshots/lights.png)
+![Lights tab showing one Bluetooth and one USB Litra Beam](docs/screenshots/lights.png)
 
-Brightness respects each light's reported power limit. In synchronized mode, the lowest effective maximum among the connected lights becomes the group limit.
+Select a light to control its power, brightness, and temperature independently. A Bluetooth light displays its Bluetooth address and the effective output available from that connection.
 
-![Synchronized controls applying power, brightness, and temperature to the light group](docs/screenshots/sync.png)
+![Bluetooth Litra Beam detail view](docs/screenshots/bluetooth-details.png)
+
+A USB light displays its USB device identifier and its reported power ceiling. If the current USB power source cannot provide the nominal output, the brightness slider stops at the effective maximum and the detail view explains why. The value shown below is the limit reported by this particular USB connection, not a fixed limit for every USB setup.
+
+![USB Litra Beam detail view showing its reported power limit](docs/screenshots/usb-details.png)
+
+With multiple lights connected, enable **Sync lights** to copy the first powered-on light's state to the group and apply subsequent changes to every light. In synchronized mode, the lowest effective maximum among the connected lights becomes the group limit, and the plugin identifies which device is imposing that limit.
+
+![Synchronized USB and Bluetooth controls capped by the lowest reported power limit](docs/screenshots/sync.png)
 
 ### 3. Automate lights from camera activity
 

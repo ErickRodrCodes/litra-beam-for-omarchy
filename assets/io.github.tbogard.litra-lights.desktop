@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Litra Beam for Omarchy
+Comment=Control Logitech Litra Beam lights over USB or Bluetooth
+Exec=omarchy-shell shell toggle io.github.tbogard.litra-lights
+Icon=io.github.tbogard.litra-lights
+Terminal=false
+Categories=Utility;Settings;
+Keywords=Litra;Logitech;Light;Brightness;Temperature;
+StartupNotify=false
+X-Litra-Lights-Managed=true

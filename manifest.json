@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.tbogard.litra-lights",
+  "name": "Litra Beam for Omarchy",
+  "version": "0.1.0",
+  "author": "Erick Rodriguez",
+  "license": "MIT",
+  "description": "Control one or many Logitech Litra Beam lights over USB or Bluetooth, independently or in sync.",
+  "kinds": ["service", "bar-widget", "overlay"],
+  "keepLoaded": true,
+  "omarchy": { "testedVersion": "4.0.1-1" },
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml",
+    "overlay": "App.qml"
+  },
+  "barWidget": {
+    "displayName": "Litra Beam for Omarchy",
+    "description": "Brightness and color-temperature controls for Logitech Litra Beam lights over USB or Bluetooth.",
+    "category": "Hardware",
+    "aliases": ["litra", "lights", "key-light"],
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

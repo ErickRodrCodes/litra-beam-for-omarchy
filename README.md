@@ -29,6 +29,8 @@ The Lights tab lists every connected light with its transport, brightness, effec
 
 Brightness respects each light's reported power limit. In synchronized mode, the lowest effective maximum among the connected lights becomes the group limit.
 
+![Synchronized controls applying power, brightness, and temperature to the light group](docs/screenshots/sync.png)
+
 ### 3. Automate lights from camera activity
 
 In the Camera tab, select the camera that should drive automation and enable **Turn lights automatically when camera is being used**. The plugin turns all connected lights on while that camera is active and turns them off when it is no longer in use. It recognizes both the built-in preview and camera use by external V4L2 or PipeWire applications.

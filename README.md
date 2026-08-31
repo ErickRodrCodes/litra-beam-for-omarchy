@@ -1,6 +1,6 @@
 # Litra Beam for Omarchy
 
-An Omarchy shell plugin for controlling one or many Logitech Litra Beam lights over USB or Bluetooth. It follows the same service/view/bar/overlay architecture as the Yamaha MG-XU plugin.
+An Omarchy shell plugin for controlling one or many Logitech Litra Beam lights over USB or Bluetooth.
 
 The panel has **Lights**, **Camera**, and **Settings** tabs. Lights contains the direct and synchronized controls. Camera provides a live preview of the selected Qt Multimedia camera and remembers the selection. It detects both its own preview and direct V4L2 or PipeWire use by other applications; when the camera is externally busy, the preview reports that another application is using it. The persisted **Turn lights automatically when camera is being used** toggle powers all connected lights on while the selected camera is in use and powers them off when it is no longer in use.
 

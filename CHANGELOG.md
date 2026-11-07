@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Size the bar lamp glyph with Omarchy 4.5 `BarIconButton` icon geometry instead of a hardcoded `Style.space(12)` custom icon.
+
 ## 0.1.0
 
 Current-version baseline documented on 2026-09-29; this is not a new release.

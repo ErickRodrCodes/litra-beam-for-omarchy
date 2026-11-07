@@ -30,14 +30,9 @@ BarWidget {
     id: button
     anchors.fill: parent
     bar: root.bar
-    iconComponent: Component {
-      Text {
-        anchors.centerIn: parent
-        text: "󰛨"
-        color: root.bar ? root.bar.foreground : Color.foreground
-        font.pixelSize: Style.space(12)
-      }
-    }
+    // Omarchy 4.5 fits BarIconButton glyphs to Style.bar.iconSize; avoid a
+    // custom iconComponent with a hardcoded Style.space(12) pixel size.
+    text: "󰛨"
     opacity: root.lightCount ? 1.0 : 0.55
     tooltipText: root.lightCount ? "Litra: " + root.lightCount + " connected" + (root.syncEnabled && root.lightCount > 1 ? " · synced" : "") : "Litra: no lights connected"
     onPressed: function(buttonCode) { if (buttonCode === Qt.LeftButton) root.toggle() }

@@ -2,6 +2,8 @@
 
 An Omarchy shell plugin for controlling one or many Logitech Litra Beam lights over USB or Bluetooth.
 
+The bar widget uses the same lamp marks as the panel (`󰛨` on, `󰹏` off), sized with Omarchy’s `BarIconButton` like other plugins, and dims when no lights are connected. The tooltip reports power state and how many lights are connected.
+
 The panel has **Lights**, **Camera**, and **Settings** tabs. Lights contains the direct and synchronized controls. Camera provides a live preview of the selected Qt Multimedia camera and remembers the selection. It detects both its own preview and direct V4L2 or PipeWire use by other applications; when the camera is externally busy, the preview reports that another application is using it. The persisted **Turn lights automatically when camera is being used** toggle powers all connected lights on while the selected camera is in use and powers them off when it is no longer in use.
 
 The **Sync lights** toggle is shown when more than one light is connected and is off by default. If the connected group drops to one light, sync is automatically turned off and the remaining light is treated as an individual device. When sync is off, the panel lists every connected light and opens separate controls for the selected device. When enabled, the first powered-on light is the master: its current power, brightness, and temperature are immediately copied to the remaining lights, and subsequent changes apply to the group.

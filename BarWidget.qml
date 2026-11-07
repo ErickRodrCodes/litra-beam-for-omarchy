@@ -7,6 +7,7 @@ BarWidget {
   moduleName: "io.github.tbogard.litra-lights"
   readonly property var litraService: bar && bar.shell ? bar.shell.serviceFor(moduleName) : null
   readonly property int lightCount: litraService ? litraService.count : 0
+  readonly property bool lightsOn: litraService ? litraService.anyPowered : false
   readonly property bool syncEnabled: litraService ? litraService.syncEnabled : false
   readonly property bool opened: panelLoader.item ? panelLoader.item.opened === true : false
   readonly property bool popoutSwitchClosing: panelLoader.item ? panelLoader.item.popoutSwitchClosing === true : false
@@ -30,11 +31,13 @@ BarWidget {
     id: button
     anchors.fill: parent
     bar: root.bar
-    // Omarchy 4.5 fits BarIconButton glyphs to Style.bar.iconSize; avoid a
-    // custom iconComponent with a hardcoded Style.space(12) pixel size.
-    text: "󰛨"
-    opacity: root.lightCount ? 1.0 : 0.55
-    tooltipText: root.lightCount ? "Litra: " + root.lightCount + " connected" + (root.syncEnabled && root.lightCount > 1 ? " · synced" : "") : "Litra: no lights connected"
+    // Same on/off marks as LightControls; BarIconButton fits to Style.bar.iconSize like other plugins.
+    text: root.lightsOn ? "󰛨" : "󰹏"
+    opacity: root.lightCount ? (root.lightsOn ? 1.0 : 0.45) : 0.55
+    tooltipText: root.lightCount
+      ? "Litra: " + (root.lightsOn ? "on" : "off") + " · " + root.lightCount + " connected"
+        + (root.syncEnabled && root.lightCount > 1 ? " · synced" : "")
+      : "Litra: no lights connected"
     onPressed: function(buttonCode) { if (buttonCode === Qt.LeftButton) root.toggle() }
   }
 }

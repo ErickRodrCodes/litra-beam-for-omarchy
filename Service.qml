@@ -21,6 +21,12 @@ Item {
   property string message: "Looking for Litra lights…"
   property bool topologyRefreshPending: false
   readonly property int count: devices.length
+  readonly property bool anyPowered: {
+    for (var i = 0; i < devices.length; i++)
+      if (devices[i] && devices[i].power === true)
+        return true
+    return false
+  }
 
   function synchronizedBrightnessMaximum() {
     if (!devices.length) return 100
